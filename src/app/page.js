@@ -8,6 +8,8 @@ import LightRays from "@/components/ui/LightRays";
 import { BentoDemo } from "@/components/ui/bentogrids";
 import { AvatarCirclesDemo } from "@/components/ui/avatar-circles-demo";
 import WorldMap  from "@/components/ui/map";
+import {Footer} from "@/components/ui/footer";
+
 
 
 const companySvgs = [
@@ -204,8 +206,9 @@ export default function Home() {
             },
           },
         ]}
-      />
+      />   
           </div>
+          <Footer />
         </div>
       </div>
     </div>
