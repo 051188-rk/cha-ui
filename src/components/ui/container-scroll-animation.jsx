@@ -5,7 +5,6 @@ import { useScroll, useTransform, motion } from "motion/react";
 export const ContainerScroll = ({
   titleComponent,
   children,
-  topPadding = "pt-2 md:pt-4 pb-2 md:pb-4" // smaller top + bottom padding
 }) => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -28,13 +27,10 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className={`h-[60rem] md:h-[80rem] flex items-start justify-center relative p-2 md:p-4 ${topPadding}`}
+      className="h-[60rem] md:h-[80rem] flex items-start justify-center relative p-2 md:p-4"
       ref={containerRef}
     >
-      <div
-        className="w-full relative"
-        style={{ perspective: "1000px" }}
-      >
+      <div className="w-full relative" style={{ perspective: "1000px" }}>
         <Header translate={translate} titleComponent={titleComponent} />
         <Card rotate={rotate} scale={scale}>
           {children}

@@ -5,6 +5,9 @@ import { CyberGlassNavbar } from "@/components/ui/cyber-glass-navbar";
 import BackedByMarquee from "@/components/ui/company";
 import Badge from "@/components/ui/badge";
 import LightRays from "@/components/ui/LightRays";
+import { BentoDemo } from "@/components/ui/bentogrids";
+import { AvatarCirclesDemo } from "@/components/ui/avatar-circles-demo";
+
 
 const companySvgs = [
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M20.569 21.281v15.052m9.568-19.599v17.04a2.683 2.683 0 0 0 2.84 2.84h.852m-6.532-15.052h5.964M15.008 33.783a5.5 5.5 0 0 1-4.828 2.84h0a5.697 5.697 0 0 1-5.68-5.68V27.25a5.697 5.697 0 0 1 5.68-5.68h0a5.5 5.5 0 0 1 4.828 2.84m25.734-2.952V36.51"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17.758 17.414c1.632-1.632 5.838-6.036 12.867-6.036S41.877 15.79 43.5 17.414"/></svg>,
@@ -19,15 +22,18 @@ const companySvgs = [
 
 export default function Home() {
   return (
-    <div style={{ width: '100%', minHeight: '100vh', position: 'relative' }}>
-      <div style={{ 
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0
-      }}>
+    <div style={{ width: "100%", minHeight: "100vh", position: "relative" }}>
+      {/* Background Light Rays */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
         <LightRays
           raysOrigin="top-center"
           raysColor="#00ffff"
@@ -41,8 +47,9 @@ export default function Home() {
           className="custom-rays"
         />
       </div>
-      
-      <div style={{ position: 'relative', zIndex: 1 }}>
+
+      {/* Foreground content */}
+      <div style={{ position: "relative", zIndex: 1 }}>
         {/* Badge on top */}
         <div
           style={{
@@ -61,50 +68,61 @@ export default function Home() {
             platformName="Raga Bug Bounty"
           />
 
-        {/* Spacer to avoid overlap with fixed navbar */}
-        <div className="h-1" />
+          {/* Spacer to avoid overlap with fixed navbar */}
+          <div className="h-1" />
+          {/* Avatar Circles section */}
+          <div className="w-full py-12 flex justify-center">
+            <AvatarCirclesDemo />
+          </div>
+          {/* Hero scroll section */}
+          <ContainerScroll
+  titleComponent={
+    <h1 className="text-4xl font-semibold text-black dark:text-white">
+      <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
+        b
+      </span>
+      <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none italic">
+        e
+      </span>
+      <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
+        st hacke
+      </span>
+      <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none italic">
+        r
+      </span>
+      <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
+        s
+      </span>
+    </h1>
+  }
+>
+  <img
+    src="/ss.webp"
+    alt="hero"
+    height={720}
+    width={1400}
+    className="mx-auto rounded-2xl object-cover h-full object-left-top"
+    draggable={false}
+  />
+</ContainerScroll>
 
-        <ContainerScroll topPadding="py-2 md:py-6"
-          titleComponent={
-            <>
-              <h1 className="text-4xl font-semibold text-black dark:text-white">
-                Join the league of <br />
-                <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
-                  b
-                </span>
-                <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none italic">
-                  e
-                </span>
-                <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
-                  st hacke
-                </span>
-                <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none italic">
-                  r
-                </span>
-                <span className="text-4xl md:text-[10rem] font-bold mt-1 leading-none">
-                  s
-                </span>
-              </h1>
-            </>
-          }
-        >
-          <img
-            src="/ss.webp"
-            alt="hero"
-            height={720}
-            width={1400}
-            className="mx-auto rounded-2xl object-cover h-full object-left-top"
-            draggable={false}
-          />
-          </ContainerScroll>
 
           {/* Hover text */}
           <div className="relative z-10 h-[20rem] w-full flex items-center justify-center px-4">
-            <TextHoverEffect text="HACKERS*" />
+            <TextHoverEffect text="HACKHOUSE*" />
           </div>
 
           {/* Company marquee */}
           <BackedByMarquee svgs={companySvgs} />
+
+          {/* Bento Grid Section */}
+          <div className="w-full py-16 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative z-10">
+                <BentoDemo />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
